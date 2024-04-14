@@ -28,12 +28,7 @@ class ReclamationType extends AbstractType
                     new Choice(['choices' => ['Complaint', 'Feedback', 'Inquiry']]),
                 ],
             ])
-            ->add('statut', null, [
-                'constraints' => [
-                    new NotBlank(),
-                    new Choice(['choices' => ['New', 'In Progress', 'Closed']]),
-                ],
-            ])
+           
             ->add('dateRec')
         ;
     }

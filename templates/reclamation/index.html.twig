@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'reclamation.html.twig' %}
 
 {% block stylesheets %}
     
@@ -88,9 +88,9 @@
                 <td>{{ reclamation.statut }}</td>
                 <td>{{ reclamation.dateRec }}</td>
                 <td>
-                    <a href="{{ path('app_reclamation_show', {'idReclamation': reclamation.idReclamation}) }}">show</a>
+                    
                     <a href="{{ path('app_reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}">edit</a>
-                    <a href="{{ path('app_reponse_new') }}">Repodre</a>
+                    
                 </td>
             </tr>
         {% else %}

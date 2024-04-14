@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/reponse')]
+
 class ReponseController extends AbstractController
 {
-    #[Route('/', name: 'app_reponse_index', methods: ['GET'])]
+    #[Route('back/listreponse', name: 'app_reponse_index', methods: ['GET'])]
     public function index(ReponseRepository $reponseRepository): Response
     {
         return $this->render('reponse/index.html.twig', [
@@ -22,7 +22,7 @@ class ReponseController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_reponse_new', methods: ['GET', 'POST'])]
+    #[Route('back/newreponse', name: 'app_reponse_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $reponse = new Reponse();
@@ -42,7 +42,7 @@ class ReponseController extends AbstractController
         ]);
     }
 
-    #[Route('/{idReponse}', name: 'app_reponse_show', methods: ['GET'])]
+    #[Route('back/{idReponse}', name: 'app_reponse_show', methods: ['GET'])]
     public function show(Reponse $reponse): Response
     {
         return $this->render('reponse/show.html.twig', [
@@ -50,7 +50,7 @@ class ReponseController extends AbstractController
         ]);
     }
 
-    #[Route('/{idReponse}/edit', name: 'app_reponse_edit', methods: ['GET', 'POST'])]
+    #[Route('back/{idReponse}/edit', name: 'app_reponse_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Reponse $reponse, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ReponseType::class, $reponse);
@@ -68,7 +68,7 @@ class ReponseController extends AbstractController
         ]);
     }
 
-    #[Route('/{idReponse}', name: 'app_reponse_delete', methods: ['POST'])]
+    #[Route('back/{idReponse}', name: 'app_reponse_delete', methods: ['POST'])]
     public function delete(Request $request, Reponse $reponse, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$reponse->getIdReponse(), $request->request->get('_token'))) {

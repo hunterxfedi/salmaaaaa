@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'reclamationback.html.twig' %}
 
 {% block stylesheets %}
     
@@ -87,10 +87,15 @@
             </tr>
         </tbody>
     </table>
+      {% if reclamation.statut != 'traite' %}
+    <form method="post" action="{{ path('reclamation_traite', {'id': reclamation.idReclamation}) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token('traite' ~ reclamation.idReclamation) }}">
+        <button type="submit">Mark as Traite</button>
+    </form>
+{% endif %}
 
-    <a href="{{ path('app_reclamation_index') }}">back to list</a>
+      
+    <a href="{{ path('app_reclamation_index_back') }}">back to list</a>
 
-    <a href="{{ path('app_reclamation_edit', {'idReclamation': reclamation.idReclamation}) }}">edit</a>
 
-    {{ include('reclamation/_delete_form.html.twig') }}
 {% endblock %}

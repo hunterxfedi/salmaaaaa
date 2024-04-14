@@ -1,6 +1,6 @@
 
 
-{% extends 'base.html.twig' %}
+{% extends 'reclamation.html.twig' %}
 
 {% block stylesheets %}
     <style>
@@ -73,11 +73,7 @@
             {{ form_widget(form.type, {'attr': {'class': 'form-control', 'placeholder': 'Enter the type'}}) }}
              {{ form_errors(form.type) }}
         </div>
-         <div class="form-group">
-            {{ form_label(form.statut, 'Statut', {'label_attr': {'class': 'form-label'}}) }}
-            {{ form_widget(form.statut, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.statut) }}
-        </div>
+      
         <div class="form-group">
             {{ form_label(form.dateRec, 'Date', {'label_attr': {'class': 'form-label'}}) }}
             {{ form_widget(form.dateRec, {'attr': {'class': 'form-control'}}) }}

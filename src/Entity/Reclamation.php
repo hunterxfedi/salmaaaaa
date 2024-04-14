@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * Reclamation
@@ -48,6 +51,11 @@ class Reclamation
      * @ORM\Column(name="date_rec", type="string", length=255, nullable=false)
      */
     private $dateRec;
+    public function __construct()
+    {
+        // Set default value for 'statut'
+        $this->statut = 'non traite';
+    }
     
     public function __toString(): string
 {
